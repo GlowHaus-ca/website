@@ -1,0 +1,202 @@
+/* Glow Haus — print / PDF price sheet
+   Letter, 0.75in margins. Mirrors the "Glow Haus-print" design reference. */
+
+:root {
+  --bg: #faf7f2;
+  --band: #efe7da;
+  --ink: #2e2a26;
+  --muted: #5c554d;
+  --accent: #7d6a55;
+  --hairline: #e5dccf;
+
+  --serif: 'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+  --sans: 'Jost', 'Futura', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@page {
+  size: Letter;
+  margin: 0.75in;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--ink);
+  background: #e9e4dc;
+  text-wrap: pretty;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--ink); }
+
+h1, h2, h3 { font-family: var(--serif); margin: 0; }
+
+/* On screen, show a letter-sized sheet so the layout previews like paper. */
+.sheet {
+  background: #fff;
+  width: 8.5in;
+  min-height: 11in;
+  margin: 32px auto;
+  padding: 0.75in;
+  box-shadow: 0 1px 2px rgba(46, 42, 38, 0.08), 0 12px 32px rgba(46, 42, 38, 0.12);
+}
+
+.print-hint {
+  max-width: 8.5in;
+  margin: 24px auto 0;
+  padding: 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.print-hint kbd {
+  font-family: inherit;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 1px 5px;
+  background: #fff;
+}
+.print-hint a { margin-left: 8px; }
+
+/* ---- Header ---- */
+
+.sheet__header {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+
+.sheet__title {
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1.08;
+}
+
+.sheet__intro {
+  font-size: 15px;
+  line-height: 26px;
+  max-width: 52ch;
+  margin: 16px auto 0;
+  color: var(--muted);
+}
+
+/* ---- Section headings ---- */
+
+.sheet__h2 {
+  font-weight: 500;
+  font-size: 28px;
+  margin: 36px 0 2px;
+}
+
+.sheet__h2--ruled {
+  margin-bottom: 4px;
+  border-top: 1px solid var(--hairline);
+  padding-top: 24px;
+}
+
+.sheet__sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+/* ---- Skin rows ---- */
+
+.treatment {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) auto;
+  gap: 10px 32px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hairline);
+  break-inside: avoid;
+}
+
+.treatment__name {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.treatment__desc {
+  font-size: 13px;
+  line-height: 21px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.treatment__price {
+  font-size: 17px;
+  margin: 0;
+  color: var(--accent);
+}
+
+/* ---- Laser rows ---- */
+
+.laser__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--hairline);
+  break-inside: avoid;
+}
+
+.laser__name { font-size: 15px; }
+
+.laser__price {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+/* ---- Contact band ---- */
+
+.sheet__band {
+  background: var(--band);
+  text-align: center;
+  padding: 28px 24px;
+  margin-top: 40px;
+  break-inside: avoid;
+}
+
+.sheet__band-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0;
+}
+
+.sheet__band-footer {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 14px 0 0;
+}
+
+/* ---- Print ---- */
+
+@media print {
+  body { background: #fff; }
+  .screen-only { display: none !important; }
+  .sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}

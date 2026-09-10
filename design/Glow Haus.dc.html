@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; background: #faf7f2; color: #2e2a26; }
+    a { color: #7d6a55; text-decoration: none; }
+    a:hover { color: #2e2a26; }
+  </style>
+</helmet>
+<div style="min-height:100vh;font-family:'Jost',sans-serif;font-weight:300">
+  <nav style="display:flex;align-items:center;gap:32px;max-width:1000px;margin:0 auto;padding:28px 24px">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:0.04em">Glow Haus</span>
+    <span style="flex:1"></span>
+    <a href="#skin" style="font-size:14px;letter-spacing:0.14em;text-transform:uppercase">Skin</a>
+    <a href="#laser" style="font-size:14px;letter-spacing:0.14em;text-transform:uppercase">Laser</a>
+    <a href="{{ phoneHref }}" style="font-size:14px;letter-spacing:0.14em;text-transform:uppercase;border:1px solid #2e2a26;padding:10px 22px;border-radius:999px" style-hover="background:#2e2a26;color:#faf7f2">Book</a>
+  </nav>
+  <div style="max-width:1000px;margin:0 auto;padding:0 24px">
+    <section style="padding:88px 0 72px;text-align:center">
+      <p style="font-size:13px;letter-spacing:0.28em;text-transform:uppercase;color:#7d6a55;margin:0 0 24px">London, Ontario</p>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,7vw,84px);line-height:1.08;margin:0">Your skin,<br><em style="font-weight:400">in its best light.</em></h1>
+      <p style="font-size:17px;line-height:30px;max-width:52ch;margin:28px auto 0;color:#5c554d">Advanced skin treatments and laser hair removal. Simple per-session pricing — call, WhatsApp, or DM to begin your skin care journey.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px">
+        <a href="{{ phoneHref }}" style="background:#2e2a26;color:#faf7f2;padding:14px 32px;border-radius:999px;font-size:14px;letter-spacing:0.1em;text-transform:uppercase" style-hover="background:#7d6a55;color:#faf7f2">Book a session</a>
+        <a href="https://www.instagram.com/glowhaus_ldn?stkn=MXQ2MnF6cHFqMnBnNA%3D%3D" target="_blank" rel="noopener" style="padding:14px 32px;border-radius:999px;border:1px solid #cfc4b5;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:#2e2a26">@glowhaus_ldn</a>
+      </div>
+    </section>
+    <section id="skin" style="padding:56px 0;border-top:1px solid #e5dccf">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;margin:0 0 8px">Skin treatments</h2>
+      <sc-for list="{{ skin }}" as="row" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;gap:12px 40px;align-items:baseline;padding:26px 0;border-bottom:1px solid #e5dccf">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;margin:0">{{ row.name }}</h3>
+          <p style="font-size:15px;line-height:25px;margin:0;color:#5c554d">{{ row.desc }}</p>
+          <p style="font-size:19px;margin:0;font-weight:400;color:#7d6a55">{{ row.price }}</p>
+        </div>
+      </sc-for>
+    </section>
+    <section id="laser" style="padding:40px 0 72px">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;margin:0 0 4px">Laser hair removal</h2>
+      <p style="font-size:14px;color:#5c554d;margin:0 0 12px">Per session.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 56px">
+        <sc-for list="{{ laser }}" as="row" hint-placeholder-count="6">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid #e5dccf">
+            <span style="font-size:16px">{{ row.name }}</span>
+            <span style="font-size:17px;color:#7d6a55">{{ row.price }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+  <section style="background:#efe7da">
+    <div style="max-width:1000px;margin:0 auto;padding:72px 24px;text-align:center">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4vw,48px);margin:0">Begin your skin care journey.</h3>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px">
+        <a href="{{ phoneHref }}" style="background:#2e2a26;color:#faf7f2;padding:14px 32px;border-radius:999px;font-size:14px;letter-spacing:0.1em;text-transform:uppercase">Call or WhatsApp</a>
+      </div>
+      <p style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#7d6a55;margin:36px 0 0">Glow Haus · London, Ontario · +1 (647) 449-3957 · @glowhaus_ldn</p>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+1 (647) 449-3957&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Studio&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = (n) => "$" + n;
+    const phone = (this.props.phone ?? "+1 (647) 449-3957").trim();
+    return {
+      phoneHref: phone ? "https://wa.me/" + phone.replace(/[^0-9]/g, "") : "https://www.instagram.com/glowhaus_ldn?stkn=MXQ2MnF6cHFqMnBnNA%3D%3D",
+      skin: [
+        { name: "BioRe Peel", price: p(150), desc: "A no-peel chemical peel — exfoliates, stimulates collagen and brightens with little to no downtime." },
+        { name: "Zena Algae Peel", price: p(150), desc: "A natural algae-based resurfacing treatment that renews texture and leaves skin visibly fresher." },
+        { name: "Microneedling", price: p(100), desc: "Fine micro-channels trigger the skin's own repair — smoother texture, softer scarring, firmer skin." },
+      ],
+      laser: [
+        { name: "Full body — head to toe", price: p(180) },
+        { name: "Full face", price: p(40) },
+        { name: "Brazilian", price: p(50) },
+        { name: "Under arms", price: p(35) },
+        { name: "Legs", price: p(65) },
+        { name: "Arms", price: p(60) },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
