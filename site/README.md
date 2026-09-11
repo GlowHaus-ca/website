@@ -11,7 +11,8 @@ design handoff in the parent folder. No build step, no dependencies.
 | `styles.css` | All styles for `index.html` |
 | `price-sheet.html` | Print / PDF price sheet (Letter, 0.75in margins) |
 | `print.css` | Styles for the price sheet, including `@page` and `@media print` rules |
-| `favicon.svg` | Favicon |
+| `favicon.ico`, `favicon-*.png`, `apple-touch-icon.png`, `site.webmanifest` | Logo favicons and home-screen icon |
+| `og-image.png` | Link-preview image (iMessage, WhatsApp, Instagram, Facebook) |
 
 ## Run locally
 
