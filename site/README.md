@@ -52,6 +52,6 @@ large centered one.
 
 ## Links
 
-- Book buttons (nav and hero): `tel:+16474493957` (phone call)
-- Call or WhatsApp button: `https://wa.me/16474493957`
+- Book buttons (nav and hero): `tel:+15083199456` (phone call)
+- Call or WhatsApp button: `https://wa.me/15083199456`
 - Instagram: `https://www.instagram.com/glowhaus_ldn`
